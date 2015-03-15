@@ -3,4 +3,4 @@ This project consists of some interactive Python games. Requirements for each of
 Games covered so far are:<br>
 1.Rock-Paper-Scissors-Lizard-Spock<br>
 2.Guess a Number<br>
-3.Digita Timer<br>
+3.Stopwatch Game<br>
