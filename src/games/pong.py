@@ -14,8 +14,8 @@ RIGHT = True
 # create a list to hold ball position
 ball_pos = [WIDTH/2, HEIGHT/2]
 ball_vel = [0, 0]
-paddle1_pos = [0,20]
-paddle2_pos = [599,20]
+paddle1_pos = [0,80]
+paddle2_pos = [599,80]
 paddle1_vel = 0
 paddle2_vel=0
 score1 = 0
