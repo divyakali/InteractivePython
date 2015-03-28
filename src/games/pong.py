@@ -9,15 +9,13 @@ HEIGHT = 400
 BALL_RADIUS = 20
 PAD_WIDTH = 8
 PAD_HEIGHT = 80
-HALF_PAD_WIDTH = PAD_WIDTH / 2
-HALF_PAD_HEIGHT = PAD_HEIGHT / 2
 LEFT = False
 RIGHT = True
 # create a list to hold ball position
 ball_pos = [WIDTH/2, HEIGHT/2]
 ball_vel = [0, 0]
-paddle1_pos = [0,20]
-paddle2_pos = [599,20]
+paddle1_pos = [0,80]
+paddle2_pos = [599,80]
 paddle1_vel = 0
 paddle2_vel=0
 score1 = 0
@@ -29,13 +27,13 @@ def spawn_ball(direction):
     global ball_pos, ball_vel # these are vectors stored as lists
     ball_pos = [WIDTH/2, HEIGHT/2]
     #Randomize the velocity
-    HORIZONTAL_VEL = random.randrange(120, 240)/60
-    VERTICAL_VEL = random.randrange(60, 180)/60
+    horizontal_vel = random.randrange(120, 240)/60
+    vertical_vel = random.randrange(60, 180)/60
     #Spawn the ball the direction chosen
     if (direction == "LEFT"):
-        ball_vel = [-HORIZONTAL_VEL, -VERTICAL_VEL]
+        ball_vel = [-horizontal_vel, -vertical_vel]
     if (direction == "RIGHT"):
-        ball_vel = [HORIZONTAL_VEL, -VERTICAL_VEL]
+        ball_vel = [horizontal_vel, -vertical_vel]
         
 # define event handlers
 def new_game():
@@ -78,7 +76,9 @@ def draw(canvas):
     canvas.draw_line(paddle2_pos,[paddle2_pos[0], paddle2_pos[1] + PAD_HEIGHT], PAD_WIDTH, "Silver")
     
     
-    # determine whether paddle and ball collide    
+    # determine whether paddle and ball collide 
+    # increase the velocity of the ball when ball hits the paddle
+    # determine scores and spawn a new ball if the ball misses a paddle
     if ((ball_pos[0]>(WIDTH-1-PAD_WIDTH)-BALL_RADIUS)\
     and ((ball_pos[1]<=paddle2_pos[1] + PAD_HEIGHT and ball_pos[1]>paddle2_pos[1]))) \
     or ((ball_pos[0]< BALL_RADIUS+PAD_WIDTH) \

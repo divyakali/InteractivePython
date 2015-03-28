@@ -15,15 +15,13 @@ def new_game():
 # define event handlers for control panel
 def range100():
     # button that changes the range to [0,100) and starts a new game 
-    global secret_number
-    global guesses
+    global secret_number, guesses
     secret_number = random.randrange(0,100)
     guesses = math.ceil(math.log((100+1),2))
 
 def range1000():
     # button that changes the range to [0,1000) and starts a new game     
-    global secret_number 
-    global guesses
+    global secret_number, guesses
     secret_number = random.randrange(0,1000)
     guesses = math.ceil(math.log((1000+1),2))
     
@@ -35,13 +33,13 @@ def input_guess(guess):
     global guesses
     if guesses > 0:
         if guessed_number<secret_number:
-            print "Lower"
+            print "Go higher!"
             guesses = guesses - 1
         elif guessed_number == secret_number:
             print "Correct"
             guesses = 0
         else:
-            print "Higher"
+            print "Go lower!"
             guesses = guesses - 1
     if guesses==0:
         print "Sorry, you ran out of guesses!"    
