@@ -28,7 +28,7 @@ def mouseclick(pos):
     card = (pos[0]//CARD_WIDTH)
     if (not exposed[card]):
         exposed[card]=True
-        
+        #use the state of the game to decide next step
         if (state == 0):
             state = 1
             turns +=1
@@ -58,7 +58,7 @@ def draw(canvas):
         else:
             txt_pos = key
         if(exposed[key]):
-            canvas.draw_text(str(deck[key]), [30+((key)*CARD_WIDTH),CANVAS_HEIGHT/2], 40, 'White')
+            canvas.draw_text(str(deck[key]), [30+((key)*CARD_WIDTH),CANVAS_HEIGHT/2], 40, "White")
         else:
             canvas.draw_polygon([[key*CARD_WIDTH,0],\
                                  [key*CARD_WIDTH,CANVAS_HEIGHT],\
