@@ -186,7 +186,14 @@ def stand():
 # draw handler    
 def draw(canvas):
     # test to make sure that card.draw works, replace with your code below
-    
+        # test to make sure that card.draw works, replace with your code below
+    global dealer_hand, player_hand
+    canvas.draw_text("BlackJack",[20,50], 40 ,'Black')
+    canvas.draw_text("Score",[350,50], 30 ,'Black')
+    canvas.draw_text("Dealer",[20,200], 30 ,'Black')
+    canvas.draw_text("Result",[150,200], 30 ,'Black')
+    canvas.draw_text("Player",[20,450],30,'Black')
+    canvas.draw_text("Hit or Stand",[150,450],30,'Black')
     card = Card("S", "A")
     card.draw(canvas, [300, 300])
 
